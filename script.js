@@ -1,7 +1,6 @@
 let products = JSON.parse(localStorage.getItem("products")) || [
-    { id: 1, name: "Poster", price: 50, image: "C:\Users\D&K\OneDrive\Desktop\t3-design demo\product image\poster.jpg" },
-    { id: 2, name: "Banner", price: 300, image: "C:\Users\D&K\OneDrive\Desktop\t3-design demo\product image\banner.jpg" },
-    { id: 3, name: "Flyer", price: 250, image: "C:\Users\D&K\OneDrive\Desktop\t3-design demo\product image\flyer.webp" }
+    { id: 1, name: "T-Shirt", price: 850, image: "image/tshirt.jpg" },
+    { id: 2, name: "Hoodie", price: 1200, image: "image/hoodie.jpg" }
 ];
 
 let cart = JSON.parse(localStorage.getItem("cart")) || {};
