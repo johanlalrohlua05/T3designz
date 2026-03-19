@@ -3,82 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T3 Designs</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f4f4f4;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #333;
-            color: white;
-            padding: 15px;
-        }
-
-        .nav-links button {
-            margin-left: 10px;
-            padding: 8px 12px;
-            border: none;
-            cursor: pointer;
-            background: #555;
-            color: white;
-            border-radius: 5px;
-        }
-
-        .container {
-            padding: 20px;
-        }
-
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .product {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .product img {
-            max-width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .admin-form input {
-            display: block;
-            margin: 10px 0;
-            padding: 8px;
-            width: 100%;
-        }
-
-        button.add {
-            background: green;
-        }
-    </style>
+    <title>T3 Designz</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="navbar">
-    <h2>T3 Designs</h2>
+    <h2>T3 Designz</h2>
     <div class="nav-links">
         <button onclick="showSection('productsSection')">Products</button>
         <button onclick="showSection('cartSection'); displayCart()">Cart</button>
-        <button onclick="showSection('adminSection')">Admin</button>
+        <button onclick="showSection('orderSection')">Order</button>
     </div>
 </div>
 
@@ -92,79 +27,20 @@
     <div id="cartSection" class="section hidden">
         <h2>Your Cart</h2>
         <div id="cart"></div>
+        <h3 id="totalPrice"></h3>
     </div>
 
-    <div id="adminSection" class="section hidden">
-        <h2>Admin Panel</h2>
-        <div class="admin-form">
-            <input type="text" id="adminName" placeholder="Product Name">
-            <input type="number" id="adminPrice" placeholder="Price">
-            <input type="text" id="adminImage" placeholder="Image URL">
-            <button onclick="addProduct()">Add Product</button>
-        </div>
+    <div id="orderSection" class="section hidden">
+        <h2>Place Your Order</h2>
+        <input type="text" id="customerName" placeholder="Your Name">
+        <input type="text" id="customerAddress" placeholder="Address">
+        <input type="text" id="customerPhone" placeholder="Phone Number">
+        <textarea id="orderDetails" readonly></textarea>
+        <button onclick="placeOrder()">Place Order</button>
     </div>
 
 </div>
 
-<script>
-    let products = [
-        { name: "T-Shirt", price: 850, image: "image/tshirt.jpg" },
-        { name: "Hoodie", price: 1200, image: "image/hoodie.jpg"}
-    ];
-
-    let cart = [];
-
-    function showSection(sectionId) {
-        document.querySelectorAll('.section').forEach(sec => sec.classList.add('hidden'));
-        document.getElementById(sectionId).classList.remove('hidden');
-    }
-
-    function displayProducts() {
-        const productList = document.getElementById('productList');
-        productList.innerHTML = "";
-
-        products.forEach((product, index) => {
-            productList.innerHTML += `
-                <div class="product">
-                    <img src="${product.image}">
-                    <h3>${product.name}</h3>
-                    <p>₹${product.price}</p>
-                    <button onclick="addToCart(${index})">Add to Cart</button>
-                </div>
-            `;
-        });
-    }
-
-    function addToCart(index) {
-        cart.push(products[index]);
-        alert("Added to cart!");
-    }
-
-    function displayCart() {
-        const cartDiv = document.getElementById('cart');
-        cartDiv.innerHTML = "";
-
-        cart.forEach(item => {
-            cartDiv.innerHTML += `<p>${item.name} - ₹${item.price}</p>`;
-        });
-    }
-
-    function addProduct() {
-        const name = document.getElementById('adminName').value;
-        const price = document.getElementById('adminPrice').value;
-        const image = document.getElementById('adminImage').value;
-
-        if (name && price && image) {
-            products.push({ name, price, image });
-            displayProducts();
-            alert("Product added!");
-        } else {
-            alert("Fill all fields!");
-        }
-    }
-
-    displayProducts();
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
