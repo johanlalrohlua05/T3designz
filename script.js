@@ -1,4 +1,4 @@
-let products = JSON.parse(localStorage.getItem("image")) || [
+let products = JSON.parse(localStorage.getItem("product")) || [
     { id: 1, name: "T-Shirt", price: 850, image: "C:\Users\MY PC\OneDrive\Desktop\New folder\image\tshirt.jpg" },
     { id: 2, name: "Hoodie", price: 1200, image: "C:\Users\MY PC\OneDrive\Desktop\New folder\image\hoodie.jpg" }
 ];
