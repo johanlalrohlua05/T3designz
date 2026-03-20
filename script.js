@@ -1,6 +1,8 @@
 let products = [
-    { name: "T-Shirt", price: 850, image: "image/tshirt.jpg" },
-    { name: "Hoodie", price: 1200, image: "image/hoodie.jpg" }
+      { name: "T-Shirt", price: 850, image: "image/tshirt.jpg" },
+    { name: "Hoodie", price: 1200, image: "image/hoodie.jpg" },
+    { name: "Poster", price: 500, image: "image/poster.jpg" },
+    { name: "Logo", price: 300, image: "image/logo.jpg" }
 ];
 
 let cart = [];
