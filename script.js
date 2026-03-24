@@ -1,8 +1,13 @@
 let products = [
-      { name: "T-Shirt", price: 850, image: "image/tshirt.jpg" },
+    { name: "T-Shirt", price: 850, image: "image/tshirt.jpg" },
     { name: "Hoodie", price: 1200, image: "image/hoodie.jpg" },
     { name: "Poster", price: 500, image: "image/poster.jpg" },
-    { name: "Logo", price: 300, image: "image/logo.jpg" }
+    { name: "Logo", price: 300, image: "image/logo.jpg" },
+    { name: "Banner", price: 3000, image: "image/banner.jpg" },
+    { name: "Jersey", price: 1200, image: "image/jersey.jpg" },
+    { name: "Sticker", price: 70, image: "image/sticker.jpg" },
+    { name: "Polaroid", price: 120, image: "image/polaroid.jpg" },
+    { name: "Wallpaper Design", price: 5000, image: "image/wallpaper design.jpg" }
 ];
 
 let cart = [];
