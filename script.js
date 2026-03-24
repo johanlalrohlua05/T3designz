@@ -99,10 +99,18 @@ function placeOrder() {
 }
 
 function sendWhatsApp() {
-  let msg = document.getElementById('orderDetails').value;
-  let phone = "91XXXXXXXXXX";
-  let url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-  window.open(url, '_blank');
+    let msg = document.getElementById('orderDetails').value;
+
+    if (!msg) {
+        alert("Add items to cart first!");
+        return;
+    }
+
+    let phone = "919863311737";
+
+    let url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+
+    window.open(url, '_blank');
 }
 
 function payUPI() {
