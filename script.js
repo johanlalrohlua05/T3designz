@@ -107,7 +107,7 @@ function sendWhatsApp() {
 
 function payUPI() {
   let total = document.getElementById('totalPrice').innerText.replace("Total: ₹", "");
-  let upiID = "yourupi@bank";
+  let upiID = "ruatsangatheking@oksbi";
   let url = `upi://pay?pa=${upiID}&pn=T3Designs&am=${total}&cu=INR`;
   window.location.href = url;
 }
