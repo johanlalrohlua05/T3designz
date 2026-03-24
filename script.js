@@ -115,7 +115,7 @@ function payUPI() {
 // QR Code Generator
 function showQR() {
   let total = document.getElementById('totalPrice').innerText.replace("Total: ₹", "");
-  let upiID = "yourupi@bank";
+  let upiID = "ruatsangatheking@oksbi";
 
   let upiLink = `upi://pay?pa=${upiID}&pn=T3Designs&am=${total}&cu=INR`;
 
