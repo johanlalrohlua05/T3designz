@@ -9,6 +9,7 @@ let products = [
     { name: "Polaroid", price: 120, image: "image/polaroid.jpg" },
     { name: "Wallpaper Design", price: 5000, image: "image/wallpaper design.jpg" }
 ];
+
 let cart = [];
 
 function showSection(sectionId) {
@@ -78,11 +79,6 @@ function changeQty(index, change) {
   displayCart();
 }
 
-function removeFromCart(index) {
-  cart.splice(index, 1);
-  displayCart();
-}
-
 function clearCart() {
   cart = [];
   displayCart();
@@ -90,11 +86,8 @@ function clearCart() {
 
 function placeOrder() {
   const name = document.getElementById('customerName').value;
-  const address = document.getElementById('customerAddress').value;
-  const phone = document.getElementById('customerPhone').value;
-
-  if (!name || !address || !phone || cart.length === 0) {
-    alert("Fill all details and add items!");
+  if (!name || cart.length === 0) {
+    alert("Fill details and add items!");
     return;
   }
 
@@ -105,20 +98,31 @@ function placeOrder() {
   displayCart();
 }
 
-// WhatsApp integration
 function sendWhatsApp() {
   let msg = document.getElementById('orderDetails').value;
-  let phone = "91XXXXXXXXXX"; // replace with your number
+  let phone = "91XXXXXXXXXX";
   let url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
   window.open(url, '_blank');
 }
 
-// UPI payment
 function payUPI() {
   let total = document.getElementById('totalPrice').innerText.replace("Total: ₹", "");
-  let upiID = "yourupi@bank"; // replace
+  let upiID = "yourupi@bank";
   let url = `upi://pay?pa=${upiID}&pn=T3Designs&am=${total}&cu=INR`;
   window.location.href = url;
+}
+
+// QR Code Generator
+function showQR() {
+  let total = document.getElementById('totalPrice').innerText.replace("Total: ₹", "");
+  let upiID = "yourupi@bank";
+
+  let upiLink = `upi://pay?pa=${upiID}&pn=T3Designs&am=${total}&cu=INR`;
+
+  let qrURL = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiLink)}`;
+
+  document.getElementById('qrImage').src = qrURL;
+  document.getElementById('qrSection').classList.remove('hidden');
 }
 
 // Initialize
