@@ -99,16 +99,14 @@ function placeOrder() {
 }
 
 function sendWhatsApp() {
+    let name = document.getElementById('customerName').value;
     let msg = document.getElementById('orderDetails').value;
 
-    if (!msg) {
-        alert("Add items to cart first!");
-        return;
-    }
+    let fullMsg = `Name: ${name}\n\nOrder:\n${msg}`;
 
     let phone = "919863311737";
 
-    let url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+    let url = `https://wa.me/${phone}?text=${encodeURIComponent(fullMsg)}`;
 
     window.open(url, '_blank');
 }
