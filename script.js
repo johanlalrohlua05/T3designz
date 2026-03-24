@@ -114,15 +114,24 @@ function payUPI() {
 
 // QR Code Generator
 function showQR() {
-  let total = document.getElementById('totalPrice').innerText.replace("Total: ₹", "");
-  let upiID = "ruatsangatheking@oksbi";
+    let totalText = document.getElementById('totalPrice').innerText;
 
-  let upiLink = `upi://pay?pa=${upiID}&pn=T3Designs&am=${total}&cu=INR`;
+    if (!totalText || totalText === "Total: ₹0") {
+        alert("Add items to cart first!");
+        return;
+    }
 
-  let qrURL = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiLink)}`;
+    let total = totalText.replace("Total: ₹", "").trim();
+    let upiID = "ruatsangatheking@oksbi";
 
-  document.getElementById('qrImage').src = qrURL;
-  document.getElementById('qrSection').classList.remove('hidden');
+    let upiLink = `upi://pay?pa=${upiID}&pn=T3Designs&am=${total}&cu=INR`;
+
+    let qrURL = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiLink)}`;
+
+    console.log(qrURL);
+
+    document.getElementById('qrImage').src = qrURL;
+    document.getElementById('qrSection').classList.remove('hidden');
 }
 
 // Initialize
