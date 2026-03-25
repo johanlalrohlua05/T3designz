@@ -46,12 +46,12 @@ let categories = {
   ],
 
   jerseys: [
-    { name: "Jersey 1", price: 1500, image: "image/Jersey/jersey1.jpg" },
-    { name: "Jersey 2", price: 2500, image: "image/Jersey/jersey2.jpg" },
-    { name: "Jersey 3", price: 2500, image: "image/Jersey/jersey3.jpg" },
-    { name: "Jersey 4", price: 2500, image: "image/Jersey/jersey4.jpg" },
-    { name: "Jersey 5", price: 2500, image: "image/Jersey/jersey5.jpg" },
-    { name: "Jersey 6", price: 2500, image: "image/Jersey/jersey6.jpg" }
+    { name: "Jersey 1", price: 1500, image: "image/Jerseys/jersey1.jpg" },
+    { name: "Jersey 2", price: 2500, image: "image/Jerseys/jersey2.jpg" },
+    { name: "Jersey 3", price: 2500, image: "image/Jerseys/jersey3.jpg" },
+    { name: "Jersey 4", price: 2500, image: "image/Jerseys/jersey4.jpg" },
+    { name: "Jersey 5", price: 2500, image: "image/Jerseys/jersey5.jpg" },
+    { name: "Jersey 6", price: 2500, image: "image/Jerseys/jersey6.jpg" }
   ],
 
   stickers: [
