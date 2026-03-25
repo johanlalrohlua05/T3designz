@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,54 +7,71 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="navbar">
-    <h2>T3 Designs</h2>
-    <div class="nav-links">
-      <button onclick="showSection('productsSection')">Products</button>
-      <button onclick="showSection('cartSection'); displayCart()">Cart</button>
-      <button onclick="showSection('orderSection')">Order</button>
-      <button onclick="showSection('confirmSection')">Confirmation</button>
+
+<!-- 🔥 NAVBAR -->
+<div class="navbar">
+  <h2>T3 Designs</h2>
+  <div class="nav-links">
+    <button onclick="showSection('productsSection')">Products</button>
+    <button onclick="showSection('cartSection'); displayCart()">Cart</button>
+    <button onclick="showSection('orderSection')">Order</button>
+    <button onclick="showSection('confirmSection')">Confirmation</button>  
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 🛍️ PRODUCTS -->
+  <div id="productsSection" class="section">
+    <h2>Our Products</h2>
+
+    <!-- ✅ CATEGORY BUTTONS -->
+    <div class="categories">
+    <button onclick="loadCategory('tshirts')">T-Shirts</button>
+    <button onclick="loadCategory('hoodies')">Hoodies</button>
+    <button onclick="loadCategory('posters')">Posters</button>
+    <button onclick="loadCategory('logos')">Logos</button>
+    <button onclick="loadCategory('banners')">Banners</button>
+    <button onclick="loadCategory('jerseys')">Jerseys</button>
+    <button onclick="loadCategory('stickers')">Stickers</button>
+    <button onclick="loadCategory('polaroids')">Polaroids</button>
+    <button onclick="loadCategory('wallpapers')">Wallpapers</button>
     </div>
+
+    <!-- PRODUCTS DISPLAY -->
+    <div class="products" id="productList"></div>
   </div>
 
-  <div class="container">
-
-    <div id="productsSection" class="section">
-      <h2>Our Products</h2>
-      <div class="products" id="productList"></div>
-    </div>
-
-    <div id="cartSection" class="section hidden">
-      <h2>Your Cart</h2>
-      <div id="cart"></div>
-      <h3 id="totalPrice"></h3>
-      <button onclick="clearCart()">Clear Cart</button>
-    </div>
-
-    <div id="orderSection" class="section hidden">
-      <h2>Place Your Order</h2>
-      <input type="text" id="customerName" placeholder="Your Name" />
-      <input type="text" id="customerAddress" placeholder="Address" />
-      <input type="text" id="customerPhone" placeholder="Phone Number" />
-      <textarea id="orderDetails" readonly></textarea>
-      <button onclick="placeOrder()">Place Order</button>
-      <button onclick="payUPI()">Pay via UPI</button>
-      <button onclick="showQR()">Show QR Code</button>
-      <button onclick="sendWhatsApp()">Send to WhatsApp</button>
-
-      <div id="qrSection" class="hidden" style="text-align:center; margin-top:20px;">
-        <h3>Scan & Pay</h3>
-        <img src="image/myqr.jpeg" width="200">
-      </div>
-    </div>
-
-    <div id="confirmSection" class="section hidden">
-      <h2>Order Confirmation</h2>
-      <p id="confirmMsg"></p>
-    </div>
-
+  <!-- 🛒 CART -->
+  <div id="cartSection" class="section hidden">
+    <h2>Your Cart</h2>
+    <div id="cart"></div>
+    <h3 id="totalPrice"></h3>
+    <button onclick="clearCart()">Clear Cart</button>
   </div>
 
-  <script src="script.js"></script>
+  <!-- 🧾 ORDER -->
+  <div id="orderSection" class="section hidden">
+    <h2>Place Your Order</h2>
+
+    <input type="text" id="customerName" placeholder="Your Name" />
+    <input type="text" id="customerAddress" placeholder="Address" />
+    <input type="text" id="customerPhone" placeholder="Phone Number" />
+
+    <textarea id="orderDetails" readonly></textarea>
+
+    <!-- ✅ ONLY WHATSAPP FLOW -->
+    <button onclick="sendWhatsApp()">Send Order Request</button>
+  </div>
+
+  <!-- ✅ CONFIRMATION -->
+  <div id="confirmSection" class="section hidden">
+    <h2>Order Sent</h2>
+    <p id="confirmMsg"></p>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
